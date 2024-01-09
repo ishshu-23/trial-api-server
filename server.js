@@ -4,9 +4,17 @@ const app = express();
 app.get("/", (req, res) => {
     res.send("/ url is working");
 });
+
 app.get("/users", (req, res) => {
-    res.send("users endpoint is working");
+    const userData = {
+        message: "users endpoint is working",
+        // Include any other user-related data here
+    };
+
+    // Sending a JSON response
+    res.json(userData);
 });
+
 app.get("/channels", (req, res) => {
     res.send("channels endpoint is working");
 });
@@ -14,4 +22,4 @@ app.get("/channels", (req, res) => {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server is listening to Port ${PORT}`);
-})
+});
